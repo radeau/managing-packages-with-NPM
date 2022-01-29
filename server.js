@@ -41,7 +41,7 @@ app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
-
+/*
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
   res.status(404);
@@ -61,4 +61,8 @@ app.use(function(err, req, res, next) {
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Node.js listening on port " + listener.address().port);
 });
-
+*/
+var port = process.env.PORT || 3000;
+bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
+  bGround.log('Node is listening on port '+ port + '...')
+});
