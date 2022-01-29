@@ -3,13 +3,15 @@
  * the verification process may break
  * ***************************************************/
 
-'use strict';
+// 'use strict';
 
 var bGround = require('fcc-express-bground');
-var fs = require('fs');
+// var fs = require('fs');
 var express = require('express');
 var myApp = require('./myApp');
 var app = express();
+
+
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
@@ -53,7 +55,7 @@ app.use(function(err, req, res, next) {
       .type('txt')
       .send(err.message || 'SERVER ERROR');
   }  
-})
+});
 
 //Listen on port set in environment variable or default to 3000
 const listener = app.listen(process.env.PORT || 3000, function () {
