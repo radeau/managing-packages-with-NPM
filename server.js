@@ -3,15 +3,10 @@
  * the verification process may break
  * ***************************************************/
 
-// 'use strict';
-
 var bGround = require('fcc-express-bground');
-// var fs = require('fs');
 var express = require('express');
 var myApp = require('./myApp');
-var app = express();
-
-
+var app = express(); 
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
@@ -62,21 +57,6 @@ const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Node.js listening on port " + listener.address().port);
 });
 */
-
-// Task 2 - Start a Working Express Server
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
-})
-
-//Task 3 - Serve Static Assets
-app.use('/public', express.static(__dirname + "/public"));
-
-//Task 4 - Serve JSON on specific route
-app.get('/json', (req, res) => {
-  res.json( {
-    "message": "Hello json"
-  });
-});
 
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
