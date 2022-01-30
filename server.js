@@ -64,7 +64,7 @@ const listener = app.listen(process.env.PORT || 3000, function () {
 */
 
 // Task 2 - Start a Working Express Server
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 })
 
@@ -72,7 +72,7 @@ app.get('/', function(req, res) {
 app.use('/public', express.static(__dirname + "/public"));
 
 //Task 4 - Serve JSON on specific route
-app.get('/json', function(req, res) {
+app.get('/json', (req, res) => {
   res.json( {
     "message": "Hello json"
   });
