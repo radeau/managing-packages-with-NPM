@@ -26,16 +26,16 @@ if (!process.env.DISABLE_XORIGIN) {
   });
 }
 
-app.use('/public', express.static(process.cwd() + '/public'));
+// app.use('/public', express.static(process.cwd() + '/public'));
 
-app.route('/_api/package.json')
-  .get(function(req, res, next) {
-    console.log('requested');
-    fs.readFile(__dirname + '/package.json', function(err, data) {
-      if(err) return next(err);
-      res.type('txt').send(data.toString());
-    });
-  });
+// app.route('/_api/package.json')
+//   .get(function(req, res, next) {
+//     console.log('requested');
+//     fs.readFile(__dirname + '/package.json', function(err, data) {
+//       if(err) return next(err);
+//       res.type('txt').send(data.toString());
+//     });
+//   });
   /*
 app.route('/')
     .get(function(req, res) {
