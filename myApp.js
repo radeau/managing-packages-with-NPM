@@ -15,15 +15,12 @@ app.use('/public', express.static(__dirname + "/public"));
 
 //Task 4 - Serve JSON on specific route
 app.get('/json', (req, res) => {
-    if (process.env.MESSAGE_STYLE === "uppercase"){
-        res.json(
-            {"message": "HELLO JSON"}
-        );
-    } else {
-        res.json(
-            {"message": "Hello json"}
-        );
+    var jResponse = { "message": "Hello json"};
+
+    if (process.env.MESSAGE_STYLE === "uppercase") {
+        jResponse.message = jResponse.message.toUpperCase();
     }
+    res.json(jResponse);
 });
 
 
