@@ -29,6 +29,13 @@ app.get('/json', (req, res) => {
     res.json(jResponse);
 });
 
+//Task 6 - Chain Middleware to create a time server
+app.get('/now', function(req, res, next){
+    req.time = new Date().toString();
+    next();
+}, function(req, res){
+    res.json({ time: req.time });
+});
  
  
 
