@@ -5,6 +5,12 @@ require('dotenv').config();
 // Task 1 - Meet the need console
 console.log("Hello World");
 
+//Task 5 - Implement a root level request logger middleware
+app.use(function (req, rest, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+});
+
 // Task 2 - Start a Working Express Server
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
@@ -23,6 +29,8 @@ app.get('/json', (req, res) => {
     res.json(jResponse);
 });
 
+ 
+ 
 
 
 
