@@ -42,6 +42,11 @@ app.get('/:word/echo', function(req, res){
     word = req.params.word;
     res.json({ echo: word })
 });
+
+//Task 8 - Get Query Parameter INput from the Client
+app.get('/name', function(req, res){
+    res.json( {name: req.query.first + " " + req.query.last} );
+});
  
 
 
