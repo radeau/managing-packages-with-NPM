@@ -55,7 +55,11 @@ app.get('/:word/echo', function(req, res){
 app.get('/name', function(req, res){
     res.json( {name: req.query.first + " " + req.query.last} );
 });
- 
+
+//Task 10 - Get Data from POST Requests
+app.post('/name', function(req, res){
+    res.json( {name: req.body.first + " " + req.body.last} );
+});
 
 
 
